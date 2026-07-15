@@ -8,4 +8,4 @@ Use `make` to build. Requires haskell stack.
 
 ## Usage
 
-The built executable is placed at `exe/choose`. Run this (or use `stack exec`) with no arguments to pick a random line from standard input, or with a file name as an argument to pick a random line from that file.
+The built executable is placed at `exe/choose`. Run this (or use `stack exec`) with no arguments to pick a random line from standard input, or with a file name as an argument to pick a random line from that file. Use the `-c` flag to choose a random character instead of a random line.
