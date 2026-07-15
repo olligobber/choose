@@ -2,6 +2,7 @@ module Main (main) where
 
 import Control.Applicative ((<**>))
 import Data.Foldable (fold)
+import Data.List (dropWhileEnd)
 import qualified Options.Applicative as O
 import System.Random (randomRIO)
 
@@ -43,9 +44,9 @@ main = do
 	let
 		fileProcessor =
 			if chars args then
-				(pure <$>)
+				fmap pure . dropWhileEnd (== '\n')
 			else
-				lines
+				dropWhileEnd (== []) . lines
 		fileGetter =
 			if fileName args == "-" then
 				getContents
