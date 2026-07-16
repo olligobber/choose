@@ -22,14 +22,12 @@ getArgs = O.info
 		]
 	where
 	parser = MyArgs <$> parseFile <*> parseChars
-	parseFile = O.strOption $ fold
-		[ O.long "file"
-		, O.short 'f'
-		, O.value "-"
-		, O.metavar "FILE"
+	parseFile = O.strArgument $ fold
+		[ O.value "-"
+		, O.metavar "File"
 		, O.help $ fold
 			[ "File to choose a random line from. "
-			, "If the file name is - then standard input is used."
+			, "If the file name is - or not present, then standard input is used."
 			]
 		]
 	parseChars = O.switch $ fold
